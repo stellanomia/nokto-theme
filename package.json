@@ -1,0 +1,42 @@
+{
+  "name": "nokto-theme",
+  "displayName": "Nokto Theme",
+  "description": "A dark theme inspired by GitHub Dark Colorblind and Dark Modern.",
+  "version": "0.0.1",
+  "publisher": "stellanomia",
+  "license": "Apache-2.0",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "homepage": "https://github.com/stellanomia/nokto-theme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stellanomia/nokto-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stellanomia/nokto-theme/issues"
+  },
+  "keywords": [
+    "nokto",
+    "theme",
+    "dark",
+    "color-theme"
+  ],
+  "categories": [
+    "Themes"
+  ],
+  "galleryBanner": {
+    "color": "#0d1117",
+    "theme": "dark"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Nokto Theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/nokto-theme.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+.vscode/**
+.vscodeignore
+.gitignore
+Cargo.toml
+Cargo.lock
+build.rs
+src/**
+target/**
+data/**
+icon.svg

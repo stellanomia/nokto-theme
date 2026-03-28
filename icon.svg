@@ -1,0 +1,39 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e131f" />
+      <stop offset="100%" stop-color="#05070a" />
+    </linearGradient>
+
+    <linearGradient id="moonGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#7b92e0" />
+      <stop offset="100%" stop-color="#74dbf5" />
+    </linearGradient>
+
+    <filter id="glow" filterUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
+      <feGaussianBlur stdDeviation="4.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="256" height="256" rx="56" fill="#0a0d12" />
+
+  <circle cx="65" cy="55" r="2.5" fill="#c4bdf2" opacity="0.6" filter="url(#glow)"/>
+  <circle cx="205" cy="85" r="3.5" fill="#c4bdf2" opacity="0.4" filter="url(#glow)"/>
+  <circle cx="90" cy="210" r="2" fill="#c4bdf2" opacity="0.5" filter="url(#glow)"/>
+
+  <path d="M 145 45
+           A 75 75 0 1 0 145 211
+           A 85 85 0 0 1 145 45 Z"
+        fill="url(#moonGrad)"
+        filter="url(#glow)"/>
+
+  <g filter="url(#glow)">
+    <line x1="135" y1="161" x2="160" y2="95" stroke="#b87a7a" stroke-width="14" stroke-linecap="round" />
+
+    <path d="M 183 105 L 208 128 L 183 151" fill="none" stroke="#b87a7a" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+</svg>
