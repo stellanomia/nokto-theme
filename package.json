@@ -2,7 +2,7 @@
   "name": "nokto-theme",
   "displayName": "Nokto Theme",
   "description": "A dark theme inspired by GitHub Dark Colorblind and Dark Modern.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "stellanomia",
   "license": "Apache-2.0",
   "icon": "icon.png",

@@ -284,6 +284,8 @@ const BRIGHT_ACCENT_TEXT: &str = "#85a5ff";
 const DIFF_GREEN: &str = "#48e477";
 const DIFF_RED: &str = "#f85149";
 const SOFT_DARK_BG: &str = "#080b10";
+const SOFT_WHITE: &str = "#e9e9e9";
+const DIM_WHITE: &str = "#b1bac4";
 
 #[rustfmt::skip]
 fn main() -> Result<()> {
@@ -383,7 +385,7 @@ fn main() -> Result<()> {
     add_alpha(&mut colors, "editor.wordHighlightBackground", &p.neutral.subtle, 0.5);
 
     // Search highlights (Find / Replace)
-    add(&mut colors, "editor.findMatchBackground", &p.attention.emphasis); 
+    add(&mut colors, "editor.findMatchBackground", &p.attention.emphasis);
     add_alpha(&mut colors, "editor.findMatchHighlightBackground", &p.attention.fg, 0.3);
 
 
@@ -417,10 +419,10 @@ fn main() -> Result<()> {
 
     // Workbench: Misc
     add(&mut colors, "statusBar.background", &p.canvas.default);
-    add(&mut colors, "statusBar.foreground", &p.fg.muted);
+    add(&mut colors, "statusBar.foreground", SOFT_WHITE);
     add(&mut colors, "statusBar.border", &p.border.default);
 
-    add(&mut colors, "titleBar.activeForeground", &p.fg.muted);
+    add(&mut colors, "titleBar.activeForeground", DIM_WHITE);
     add(&mut colors, "titleBar.activeBackground", &p.canvas.default);
     add(&mut colors, "panelTitle.activeBorder", CUSTOM_ACCENT);
     add(&mut colors, "notificationsInfoIcon.foreground", BRIGHT_ACCENT_TEXT);
@@ -437,7 +439,9 @@ fn main() -> Result<()> {
     add(&mut colors, "terminal.ansiWhite", &p.ansi.white);
 
     add(&mut colors, "statusBar.debuggingBackground", CUSTOM_ACCENT);
-    add(&mut colors, "statusBar.debuggingForeground", "#e9e9e9");
+    add(&mut colors, "statusBar.debuggingForeground", SOFT_WHITE);
+    add(&mut colors, "statusBarItem.remoteBackground", CUSTOM_ACCENT);
+    add(&mut colors, "statusBarItem.remoteForeground", SOFT_WHITE);
 
 
     let base_theme: BaseThemeTokens = serde_json::from_str(include_str!("../data/modern_dark_token_color.json"))?;
