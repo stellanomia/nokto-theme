@@ -436,6 +436,9 @@ fn main() -> Result<()> {
     add(&mut colors, "terminal.ansiCyan", &p.ansi.cyan);
     add(&mut colors, "terminal.ansiWhite", &p.ansi.white);
 
+    add(&mut colors, "statusBar.debuggingBackground", CUSTOM_ACCENT);
+    add(&mut colors, "statusBar.debuggingForeground", "#e9e9e9");
+
 
     let base_theme: BaseThemeTokens = serde_json::from_str(include_str!("../data/modern_dark_token_color.json"))?;
     let mut token_colors = Vec::new();
@@ -445,7 +448,7 @@ fn main() -> Result<()> {
 
     let nk_variant = "#FF9E64";
     let nk_type = "#4EC9B0";
-    let nk_string = "#ca82ceef";
+    let nk_string = "#ce8978";
     let nk_function = "#cac68c";
 
     add(&mut colors, "symbolIcon.classForeground", nk_type);
