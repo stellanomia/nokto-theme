@@ -278,14 +278,18 @@ struct BaseThemeTokens {
     semantic_token_colors: Option<BTreeMap<String, String>>,
 }
 
-const CUSTOM_ACCENT: &str = "#3d5fcf";
-const CUSTOM_COMMENT: &str = "#6A9955";
+const ACCENT: &str = "#3d5fcf";
+const COMMENT: &str = "#6A9955";
 const BRIGHT_ACCENT_TEXT: &str = "#85a5ff";
 const DIFF_GREEN: &str = "#48e477";
 const DIFF_RED: &str = "#f85149";
 const SOFT_DARK_BG: &str = "#080b10";
 const SOFT_WHITE: &str = "#e9e9e9";
 const DIM_WHITE: &str = "#b1bac4";
+const ERROR: &str = "#eb5353";
+const WARNING: &str = "#e4a341";
+const INFO: &str = "#3794ff";
+
 
 #[rustfmt::skip]
 fn main() -> Result<()> {
@@ -295,11 +299,11 @@ fn main() -> Result<()> {
 
 
     // Base Colors & Accents
-    add(&mut colors, "focusBorder", CUSTOM_ACCENT);
+    add(&mut colors, "focusBorder", ACCENT);
     add(&mut colors, "foreground", &p.fg.default);
     add(&mut colors, "descriptionForeground", &p.fg.muted);
     add(&mut colors, "errorForeground", &p.danger.fg);
-    add(&mut colors, "widget.shadow", "rgba(1,4,9,0.85)"); // Natural UI shadows
+    add(&mut colors, "widget.shadow", "rgba(1,4,9,0.85)");
 
 
     // Links & Text
@@ -308,16 +312,16 @@ fn main() -> Result<()> {
 
 
     // Buttons, Inputs & Badges
-    add(&mut colors, "button.background", CUSTOM_ACCENT);
+    add(&mut colors, "button.background", ACCENT);
     add(&mut colors, "button.foreground", &p.btn.primary.text);
     add(&mut colors, "button.hoverBackground", &p.btn.primary.hover_bg);
-    add(&mut colors, "badge.background", CUSTOM_ACCENT);
-    add(&mut colors, "progressBar.background", CUSTOM_ACCENT);
+    add(&mut colors, "badge.background", ACCENT);
+    add(&mut colors, "progressBar.background", ACCENT);
 
     add(&mut colors, "input.background", &p.canvas.default);
     add(&mut colors, "input.border", &p.border.default);
     add(&mut colors, "input.foreground", &p.fg.default);
-    add(&mut colors, "input.placeholderForeground", &p.fg.subtle); // Placeholder text
+    add(&mut colors, "input.placeholderForeground", &p.fg.subtle);
 
     add(&mut colors, "dropdown.background", &p.canvas.overlay);
     add(&mut colors, "dropdown.border", &p.border.default);
@@ -328,7 +332,7 @@ fn main() -> Result<()> {
     add(&mut colors, "list.highlightForeground", BRIGHT_ACCENT_TEXT);
     add(&mut colors, "list.activeSelectionForeground", BRIGHT_ACCENT_TEXT);
     add_alpha(&mut colors, "list.hoverBackground", &p.neutral.subtle, 0.5);
-    add_alpha(&mut colors, "list.activeSelectionBackground", CUSTOM_ACCENT, 0.2);
+    add_alpha(&mut colors, "list.activeSelectionBackground", ACCENT, 0.2);
     add_alpha(&mut colors, "list.inactiveSelectionBackground", &p.neutral.muted, 0.5);
     add(&mut colors, "list.dropBackground", &p.neutral.muted);
 
@@ -338,8 +342,8 @@ fn main() -> Result<()> {
     add(&mut colors, "activityBar.foreground", &p.fg.default);
     add(&mut colors, "activityBar.inactiveForeground", &p.fg.muted);
     add(&mut colors, "activityBar.border", &p.border.default);
-    add(&mut colors, "activityBar.activeBorder", CUSTOM_ACCENT);
-    add(&mut colors, "activityBarBadge.background", CUSTOM_ACCENT);
+    add(&mut colors, "activityBar.activeBorder", ACCENT);
+    add(&mut colors, "activityBarBadge.background", ACCENT);
 
 
     // Workbench: Side Bar
@@ -356,31 +360,34 @@ fn main() -> Result<()> {
     add(&mut colors, "editorGroupHeader.tabsBackground", SOFT_DARK_BG);
 
     add(&mut colors, "tab.border", &p.border.default);
-    add(&mut colors, "tab.activeBorderTop", CUSTOM_ACCENT);
+    add(&mut colors, "tab.activeBorderTop", ACCENT);
     add(&mut colors, "tab.activeBackground", &p.canvas.default);
     add(&mut colors, "tab.activeForeground", &p.fg.default);
     add(&mut colors, "tab.inactiveBackground", SOFT_DARK_BG);
     add(&mut colors, "tab.inactiveForeground", &p.fg.muted);
-    add(&mut colors, "tab.hoverBackground", &p.canvas.default); // Tab hover
+    add(&mut colors, "tab.hoverBackground", &p.canvas.default);
 
 
     // Editor: Basic
     add(&mut colors, "editor.background", &p.canvas.default);
     add(&mut colors, "editor.foreground", &p.fg.default);
-    add(&mut colors, "editorCursor.foreground", CUSTOM_ACCENT);
+    add(&mut colors, "editorCursor.foreground", ACCENT);
     add(&mut colors, "editorLineNumber.foreground", &p.fg.subtle);
     add(&mut colors, "editorLineNumber.activeForeground", &p.fg.default);
     add(&mut colors, "editorWidget.background", &p.canvas.overlay);
     add(&mut colors, "editor.lineHighlightBackground", &p.codemirror.activeline_bg);
-    add(&mut colors, "editorWarning.foreground", &p.attention.fg);
-    add(&mut colors, "editorError.foreground", &p.danger.fg);
-    add(&mut colors, "problemsWarningIcon.foreground", &p.attention.fg);
-    add(&mut colors, "problemsErrorIcon.foreground", &p.danger.fg);
+    add(&mut colors, "editorWarning.foreground", WARNING);
+    add(&mut colors, "editorError.foreground", ERROR);
+    add(&mut colors, "editorInfo.foreground", INFO);
+    add(&mut colors, "problemsWarningIcon.foreground", WARNING);
+    add(&mut colors, "problemsErrorIcon.foreground", ERROR);
+    add(&mut colors, "problemsInfoIcon.foreground", INFO);
+
 
 
     // Editor: Selection & Find
-    add_alpha(&mut colors, "editor.selectionBackground", CUSTOM_ACCENT, 0.2);
-    add_alpha(&mut colors, "editor.inactiveSelectionBackground", CUSTOM_ACCENT, 0.1);
+    add_alpha(&mut colors, "editor.selectionBackground", ACCENT, 0.2);
+    add_alpha(&mut colors, "editor.inactiveSelectionBackground", ACCENT, 0.1);
     add_alpha(&mut colors, "editor.selectionHighlightBackground", &p.success.fg, 0.25);
     add_alpha(&mut colors, "editor.wordHighlightBackground", &p.neutral.subtle, 0.5);
 
@@ -403,9 +410,9 @@ fn main() -> Result<()> {
     add(&mut colors, "gitDecoration.addedResourceForeground", DIFF_GREEN);
     add(&mut colors, "gitDecoration.untrackedResourceForeground", DIFF_GREEN);
 
-    add(&mut colors, "gitDecoration.modifiedResourceForeground", BRIGHT_ACCENT_TEXT); 
+    add(&mut colors, "gitDecoration.modifiedResourceForeground", BRIGHT_ACCENT_TEXT);
 
-    add(&mut colors, "gitDecoration.deletedResourceForeground", DIFF_RED); 
+    add(&mut colors, "gitDecoration.deletedResourceForeground", DIFF_RED);
     add(&mut colors, "gitDecoration.ignoredResourceForeground", &p.fg.subtle);
     add(&mut colors, "gitDecoration.conflictingResourceForeground", &p.severe.fg);
 
@@ -424,7 +431,7 @@ fn main() -> Result<()> {
 
     add(&mut colors, "titleBar.activeForeground", DIM_WHITE);
     add(&mut colors, "titleBar.activeBackground", &p.canvas.default);
-    add(&mut colors, "panelTitle.activeBorder", CUSTOM_ACCENT);
+    add(&mut colors, "panelTitle.activeBorder", ACCENT);
     add(&mut colors, "notificationsInfoIcon.foreground", BRIGHT_ACCENT_TEXT);
 
     // Terminal
@@ -438,9 +445,9 @@ fn main() -> Result<()> {
     add(&mut colors, "terminal.ansiCyan", &p.ansi.cyan);
     add(&mut colors, "terminal.ansiWhite", &p.ansi.white);
 
-    add(&mut colors, "statusBar.debuggingBackground", CUSTOM_ACCENT);
+    add(&mut colors, "statusBar.debuggingBackground", ACCENT);
     add(&mut colors, "statusBar.debuggingForeground", SOFT_WHITE);
-    add(&mut colors, "statusBarItem.remoteBackground", CUSTOM_ACCENT);
+    add(&mut colors, "statusBarItem.remoteBackground", ACCENT);
     add(&mut colors, "statusBarItem.remoteForeground", SOFT_WHITE);
 
 
@@ -470,7 +477,7 @@ fn main() -> Result<()> {
     // Token Colors
     for mut token in base_theme.token_colors {
         if token.scope.contains_keyword("comment") {
-            token.settings.foreground = Some(CUSTOM_COMMENT.to_string());
+            token.settings.foreground = Some(COMMENT.to_string());
             token.settings.font_style = Some("italic".to_string());
             token_colors.push(token);
             continue;

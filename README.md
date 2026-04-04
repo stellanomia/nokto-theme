@@ -2,7 +2,7 @@
 
 A VSCode theme built with Rust, based on GitHub Dark Colorblind (beta) and Dark Modern.
 
-![Nokto Theme Preview](https://raw.githubusercontent.com/stellanomia/nokto-theme/main/images/preview.png)
+![Nokto Theme Preview](https://raw.githubusercontent.com/o24s/nokto-theme/main/images/preview.png)
 
 ## License
 

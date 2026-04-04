@@ -1,7 +1,7 @@
 [package]
 name = "nokto-theme"
 edition = "2024"
-authors = ["stellanomia <fulmlumo@gmail.com>"]
+authors = ["o24s <fulmlumo@gmail.com>"]
 license = "Apache-2.0"
 build = "build.rs"
 
@@ -10,7 +10,7 @@ serde = { version = "1.0.228", features = ["derive"] }
 serde_json = "1.0.149"
 csscolorparser = "0.8.3"
 anyhow = "1.0.102"
-indexmap = { version = "2.13.0", features = ["serde"] }
+indexmap = { version = "2.13.1", features = ["serde"] }
 palette = "0.7.6"
 
 [build-dependencies]
